@@ -44,7 +44,7 @@ def transmitter():
     """    
     DW1000.newTransmit()
     DW1000.setDataStr(msg)
-    DW1000.setDelay(2000, C.MILLISECONDS)
+    DW1000.setDelay(100, C.MILLISECONDS)
     DW1000.startTransmit()
 
 try:
@@ -54,7 +54,7 @@ try:
     DW1000.setup(PIN_SS)
     print("DW1000 initialized ...")
 
-    DW1000.generalConfiguration("FF:FF:FF:FF:00:00:00:00", C.MODE_LONGDATA_RANGE_LOWPOWER)
+    DW1000.generalConfiguration("FF:FF:FF:FF:00:00:00:00", C.MODE_LONGDATA_FAST_ACCURACY)
     DW1000.registerCallback("handleSent", handleSent)
     DW1000.registerCallback("handleReceived", handleReceived)
     if (trxToggle == C.TRANSMITTER):

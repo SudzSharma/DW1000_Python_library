@@ -20,7 +20,7 @@ timeRangeSentTS = 0
 timePollAckReceivedTS = 0
 REPLY_DELAY_TIME_US = 7000
 # The polling range frequency defines the time interval between every distance poll in milliseconds. Feel free to change its value. 
-POLL_RANGE_FREQ = 1000 # the distance between the tag and the anchor will be estimated every second.
+POLL_RANGE_FREQ = 100 # the distance between the tag and the anchor will be estimated every second.
 
 
 
@@ -155,7 +155,7 @@ try:
     print("DW1000 initialized")
     print("############### TAG ##############")	
 
-    DW1000.generalConfiguration("7D:00:22:EA:82:60:3B:9C", C.MODE_LONGDATA_RANGE_ACCURACY)
+    DW1000.generalConfiguration("7D:00:22:EA:82:60:3B:9C", C.MODE_LONGDATA_FAST_ACCURACY)
     DW1000.registerCallback("handleSent", handleSent)
     DW1000.registerCallback("handleReceived", handleReceived)
     DW1000.setAntennaDelay(C.ANTENNA_DELAY_RASPI)
