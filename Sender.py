@@ -10,7 +10,7 @@ import DW1000Constants as C
 
 number = 1
 sent = False
-SEND_DELAY = 100
+SEND_DELAY = 1000
 
 
 def handleSent():
@@ -43,7 +43,7 @@ try:
     DW1000.begin(PIN_IRQ)
     DW1000.setup(PIN_SS)
     print("DW1000 initialized ...")
-    DW1000.generalConfiguration("7D:00:22:EA:82:60:3B:9C", C.MODE_LONGDATA_FAST_ACCURACY)    
+    DW1000.generalConfiguration("7D:00:22:EA:82:60:3B:9C", C.MODE_LONGDATA_RANGE_LOWPOWER)    
     DW1000.registerCallback("handleSent", handleSent)
     transmitter()
     while 1:
